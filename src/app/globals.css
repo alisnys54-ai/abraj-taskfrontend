@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 220 20% 97%;
+  --foreground: 230 30% 10%;
+  --border: 220 16% 89%;
+}
+
+* { border-color: hsl(var(--border)); }
+body { background: #F4F1EB; color: #0F1B2A; font-family: 'Tajawal', system-ui, sans-serif; }
+
+/* Printing (task reports, file cards, file indexes): only the sheet prints. */
+@media print {
+  body * { visibility: hidden !important; }
+  .print-sheet, .print-sheet * { visibility: visible !important; }
+  .print-sheet { position: absolute; inset: 0 auto auto 0; width: 100%; box-shadow: none !important; margin: 0 !important; }
+  .no-print { display: none !important; }
+  @page { size: A4; margin: 14mm; }
+}
